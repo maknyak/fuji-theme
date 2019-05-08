@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "gulp",
     "build": "gulp minify",
-    "clean": "gulp cleaning",
+    "clean": "gulp clear",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

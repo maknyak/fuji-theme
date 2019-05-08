@@ -45,7 +45,7 @@ function minify() {
     .pipe(dest(paths.dist.css));
 }
 
-function cleaning() {
+function clear() {
   return src([`${paths.source.css}/*`, paths.dist.base], {read: false, allowEmpty: true})
     .pipe(clean({force: true}))
 }
@@ -62,6 +62,6 @@ function see() {
 }
 
 exports.minify = minify
-exports.cleaning = cleaning
-const build = series(cleaning, parallel(style, see))
+exports.clear = clear
+const build = series(clear, parallel(style, see))
 task('default', build)
