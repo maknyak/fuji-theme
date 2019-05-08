@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "serve": "gulp",
+    "build": "gulp minify",
+    "clean": "gulp cleaning",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "Bootstrap",
-    "4",
     "Sass",
     "Gulp"
   ],

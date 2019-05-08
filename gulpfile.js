@@ -1,19 +1,38 @@
-const { src, dest, watch, parallel, task } = require('gulp');
+const { src, dest, watch, parallel, series, task } = require('gulp');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('autoprefixer');
 const sass = require('gulp-sass');
+const clean = require('gulp-clean');
 
 const paths = {
-  styles: {
-    src: 'src/scss/**/*.scss',
-    dest: 'public/css'
+  source: {
+    base: './src',
+    css: './src/css/',
+    scss: './src/scss/**/*.scss',
+    html: './src/*.html'
+  },
+  dist: {
+    base: './dist',
+    css: './dist/css/'
   }
 }
 
 function style() {
-  return src(paths.styles.src)
+  return src(paths.source.scss)
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      includePaths: ['node_modules']
+    }).on('error', sass.logError))
+    .pipe(postcss([
+      autoprefixer()
+    ]))
+    .pipe(dest(paths.source.css));
+}
+
+function minify() {
+  return src(paths.source.scss)
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed',
@@ -23,21 +42,26 @@ function style() {
       autoprefixer()
     ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(dest(paths.styles.dest));
+    .pipe(dest(paths.dist.css));
+}
+
+function cleaning() {
+  return src([`${paths.source.css}/*`, paths.dist.base], {read: false, allowEmpty: true})
+    .pipe(clean({force: true}))
 }
 
 function see() {
   browserSync.init({
     server: {
-      baseDir: "./public"
+      baseDir: "./src"
     },
   })
 
-  watch(paths.styles.src, style).on('change', browserSync.reload)
-  watch("public/*.html").on('change', browserSync.reload)
+  watch(paths.source.scss, style).on('change', browserSync.reload)
+  watch(paths.source.html).on('change', browserSync.reload)
 }
 
-exports.watch = watch
-exports.style = style
-var build = parallel(style, see)
+exports.minify = minify
+exports.cleaning = cleaning
+const build = series(cleaning, parallel(style, see))
 task('default', build)
