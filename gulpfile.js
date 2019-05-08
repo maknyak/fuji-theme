@@ -57,7 +57,7 @@ function see() {
     },
   })
 
-  watch(paths.source.scss, style).on('change', browserSync.reload)
+  watch(paths.source.scss, series(clear, style)).on('change', browserSync.reload)
   watch(paths.source.html).on('change', browserSync.reload)
 }
 
