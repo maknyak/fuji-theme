@@ -1,23 +1,93 @@
-$heading-devider-bg: rgba(0, 0 , 0, 0.125);
-$heading-devider-aksen: purple;
+@import "./sizing/_sizing-function.scss";
 
-.heading-page {
-  .heading-title {
-    font-size: convert-rem(22px);
-    margin: 0;
+.pageheading {
+  .pageheading-title {
+    font-size: convert-rem(24px);
+    font-weight: bold !important;
+    margin-bottom: 15px;
   }
 
-  .heading-devider {
-    background-color: $heading-devider-bg;
-    height: 2px;
-    margin: 10px 0 20px;
+  .pageheading-desc {
+    font-size: convert-rem(18px);
+    line-height: 24px;
+  }
 
+  &.pageheading-devider {
     &::after {
-      content: '';
+      content: "";
+      background-color: $danger;
+      display: inline-block;
+      height: 2px;
+      width: 75px;
+    }
+  }
+}
+
+.subheading {
+  &.subheading-bordered {
+    margin-bottom: 5px;
+    
+    &::after {
+      content: "";
+      background-color: $danger;
       display: block;
       height: 2px;
-      background-color: $heading-devider-aksen;
-      width: 150px;
+      width: 10px;
+      margin-bottom: 10px;
     }
+  }
+
+  &.subheading-lg {
+    .subheading-title {
+      font-size: convert-rem(24px) !important;
+      font-weight: bold !important;
+      margin-bottom: 20px;
+    }
+  }
+
+  &.subheading-md {
+    .subheading-title {
+      font-size: convert-rem(18px) !important;
+      font-weight: bold !important;
+      margin-bottom: 10px;
+    }
+  }
+
+  &.subheading-sm {
+    .subheading-title {
+      font-size: convert-rem(16px) !important;
+      font-weight: bold !important;
+      margin-bottom: 10px;
+    }
+  }
+
+  &.subheading-xs {
+    .subheading-title {
+      font-size: convert-rem(14px) !important;
+      font-weight: bold !important;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.blank-item {
+  border: 2px dashed rgba($white, .2);
+  color: $white;
+  display: block;
+  font-weight: bold !important;
+  height: 230px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    color: rgba($white, .75);
+  }
+
+  .blank-text {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
   }
 }

@@ -1,0 +1,13 @@
+@import "../sizing/sizing-function";
+
+.caret-sm {
+  font-size: convert-rem(8px) !important;
+  position: relative;
+  top: -1px;
+}
+
+.caret-md {
+  position: relative;
+  top: 1px;
+  margin-left: 10px;
+}

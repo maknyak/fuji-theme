@@ -1,5 +1,37 @@
 @import "./sizing-function";
 
+.fontsize-8 {
+  font-size: convert-rem(8px);
+}
+
+.fontsize-9 {
+  font-size: convert-rem(9px);
+}
+
+.fontsize-10 {
+  font-size: convert-rem(10px);
+}
+
+.fontsize-11 {
+  font-size: convert-rem(11px);
+}
+
 .fontsize-12 {
   font-size: convert-rem(12px);
+}
+
+.fontsize-16 {
+  font-size: convert-rem(16px);
+}
+
+.fontsize-18 {
+  font-size: convert-rem(18px);
+}
+
+.fontsize-24 {
+  font-size: convert-rem(24px);
+}
+
+.fontsize-32 {
+  font-size: convert-rem(32px);
 }

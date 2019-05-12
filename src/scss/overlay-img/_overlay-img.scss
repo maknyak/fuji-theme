@@ -1,0 +1,97 @@
+@import "./sizing/_sizing-function.scss";
+
+.overlayimg {
+  position: relative;
+  margin-bottom: 8px;
+  background-color: $light;
+  overflow: hidden;
+
+  .overlayimg-label {
+    background-color: $danger;
+    color: $white;
+    font-size: convert-rem(10px);
+    padding: 5px 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+
+  .overlayimg-wrapper {
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: absolute;
+    z-index: 1000; 
+    width: 100%;
+    padding: 20px; 
+  }
+
+  &::after {
+    content: '';
+    box-shadow: inset 0px -125px 300px 0px rgba(0,0,0,0.9);
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+
+  &.overlayimg-lg {
+    .overlayimg-wrapper{
+      padding: 35px 25px;
+    }
+
+    &::after {
+      content: '';
+      box-shadow: inset 0px -200px 300px 8px rgba(0,0,0,0.9);
+    }
+  }
+}
+
+.bg-img {
+  background: url('../../images/ellipse_4.png') no-repeat center top; 
+}
+
+.bg-shadow-1 {
+  background: url('../../images/shadow_1.png') no-repeat center right; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg-shadow-2 {
+  background: url('../../images/shadow_2.png') no-repeat center bottom; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg-shadow-3 {
+  background: url('../../images/shadow_3.png') no-repeat center bottom; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.img-frame {
+  max-width: 80px;
+  height: auto;
+  margin: 10px 0 30px;
+
+  > img {
+    display: block;
+  }
+
+  &.img-frame-xs {
+    max-width: 130px;
+  }
+}

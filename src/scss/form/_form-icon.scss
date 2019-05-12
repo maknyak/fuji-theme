@@ -1,0 +1,23 @@
+.input-group-icon {
+  .form-control {
+    padding-left: 15px;
+    padding-right: 35px;
+  }
+
+  .input-group-append {
+    margin-left: -35px !important;
+    z-index: 1000;
+
+    .input-group-text {
+      border: none;
+      background-color: transparent !important;
+    }
+  }
+}
+
+.input-group-dark {
+  .form-control {
+    background-color: #333;
+    border-color: #333;
+  }
+}

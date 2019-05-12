@@ -42,7 +42,7 @@ function minify() {
       autoprefixer()
     ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(dest(paths.dist.css));
+    .pipe(dest(paths.dest.css));
 }
 
 function clear() {

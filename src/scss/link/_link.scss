@@ -1,0 +1,67 @@
+.link-dark {
+  color: #ccc !important; 
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.link-light {
+  color: $white !important; 
+
+  &:hover {
+    color: #ccc !important;
+  }
+}
+
+.link-decoration {
+  padding-bottom: 5px;
+  border-bottom: 2px solid $danger;
+}
+
+body {
+  position: relative;
+}
+
+.main {
+  width: 100%;
+  
+  @include media-breakpoint-up(lg) {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &::before {
+    content: '';
+    background-color: $black;
+    display: block;
+    position: absolute;
+    height: 1400px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+#carousel-dots {
+  .nav-item {
+    display: none;
+    
+    &.active {
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+}
