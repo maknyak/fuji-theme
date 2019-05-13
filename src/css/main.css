@@ -8054,7 +8054,8 @@ body {
 
 .bg-shadow-3 {
   background: url("../../images/shadow_3.png") no-repeat center bottom;
-  background-size: cover; }
+  background-size: cover;
+  box-shadow: 0px 25px 40px -19px rgba(0, 0, 0, 0.8); }
 
 .img-frame {
   max-width: 80px;
